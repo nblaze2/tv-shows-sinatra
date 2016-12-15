@@ -39,6 +39,25 @@ feature "user views list of TV shows" do
   # * If the end year is not provided it should indicate that the show is still
   #   running.
 
-  pending "view details for a TV show"
-  pending "view details for a TV show with missing information"
+  scenario "view details for a TV show" do
+    archer = TelevisionShow.create!({
+        title: "Archer", network: "FX",
+        starting_year: 2009, genre: "Comedy"
+    })
+    visit "/television_shows"
+    click_link "Archer (FX)"
+    expect(page).to have_content("FX")
+    expect(page).to have_content("Comedy")
+    expect(page).to have_content(2009)
+  end
+
+  scenario "view details for a TV show with missing information" do
+    fresh_off_the_boat = TelevisionShow.create!({
+        title: "Fresh off the Boat", network: "ABC",
+        starting_year: 2015, genre: "Comedy"
+    })
+    visit "/television_shows"
+    click_link "Fresh off the Boat (ABC)"
+    expect(page).to have_content("Present")
+  end
 end
