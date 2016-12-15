@@ -1,6 +1,7 @@
 require "rspec"
 require "capybara/rspec"
 require "database_cleaner"
+require "pry"
 
 require_relative "../server"
 

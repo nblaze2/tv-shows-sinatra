@@ -24,6 +24,11 @@ get "/television_shows/:id" do
   erb :show
 end
 
+get "/television_shows/:id/edit" do
+  @show = TelevisionShow.find(params[:id])
+  erb :edit
+end
+
 post "/television_shows" do
   @show = TelevisionShow.new(params[:television_show])
 

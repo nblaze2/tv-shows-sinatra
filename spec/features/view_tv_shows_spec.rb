@@ -4,7 +4,7 @@ feature "user views list of TV shows" do
   # As a TV fanatic
   # I want to view a list of TV shows
   # So I can find new shows to watch
-  #
+
   # Acceptance Criteria:
   # * I can see the names and networks of all TV shows
 
@@ -13,13 +13,13 @@ feature "user views list of TV shows" do
     game_of_thrones = TelevisionShow.create!({
         title: "Game of Thrones", network: "HBO",
         starting_year: 2011, genre: "Fantasy"
-      })
+    })
 
     married_with_children = TelevisionShow.create!({
         title: "Married... with Children", network: "Fox",
         starting_year: 1987, ending_year: 1997,
         genre: "Comedy"
-      })
+    })
 
     # The user visits the index page
     visit "/television_shows"
