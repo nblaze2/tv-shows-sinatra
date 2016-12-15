@@ -1,4 +1,5 @@
 require "sinatra"
+require "pry"
 require "sinatra/activerecord"
 require_relative "app/models/television_show"
 
@@ -19,6 +20,17 @@ get "/television_shows/new" do
   erb :new
 end
 
+post "/television_shows" do
+  @show = TelevisionShow.new(params[:television_show])
+
+  if @show.save
+    redirect "/television_shows"
+  else
+    @errors = " Error(s): #{@show.errors.full_messages}"
+    erb :new
+  end
+end
+
 get "/television_shows/:id" do
   @show = TelevisionShow.find(params[:id])
   erb :show
@@ -29,13 +41,13 @@ get "/television_shows/:id/edit" do
   erb :edit
 end
 
-post "/television_shows" do
-  @show = TelevisionShow.new(params[:television_show])
-
+post "/television_shows/:id" do
+  @show = TelevisionShow.find(params[:id])
+  @show.attributes = (params[:television_show])
   if @show.save
     redirect "/television_shows"
   else
     @errors = " Error(s): #{@show.errors.full_messages}"
-    erb :new
+    erb :edit
   end
 end

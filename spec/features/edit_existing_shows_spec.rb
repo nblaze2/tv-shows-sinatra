@@ -12,6 +12,7 @@ feature "user edits existing show" do
 # * The user is redirected to the details page for that show if successfully updated.
 # * If the update fails any validations, re-display the form with the appropriate error messages.
   scenario "successfully edit existing show" do
+
     jeopardy = TelevisionShow.create!({
         title: "Jeapordy", network: "Columbia broadcast system",
         starting_year: 1984, genre: "Mystery" # show wasn't real till Alex let's be honest
@@ -29,5 +30,6 @@ feature "user edits existing show" do
     click_button('Update TV Show')
 
     expect(page).to have_content("Jeopardy (CBS)")
+    expect(page).to_not have_content("Jeapordy (Columbia broadcast system)")
   end
 end
