@@ -3,7 +3,7 @@
 <ul>
   <% @shows.each do |show| %>
     <li><a href="/television_shows/<%= show.id %>"><%= "#{show.title} (#{show.network})" %></a></li>
-    <input type="button" onclick="location.href='http://localhost:4567/television_shows/<%= show.id %>/edit'" value="Edit">
+    <a href="/television_shows/<%= show.id %>/edit"><button type="button">Edit</button></a>
   <% end %>
 </ul>
 

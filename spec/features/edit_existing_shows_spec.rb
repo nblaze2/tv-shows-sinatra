@@ -21,11 +21,7 @@ feature "user edits existing show" do
 
     expect(page).to have_content("Jeapordy (Columbia broadcast system)")
 
-    # click_button('Edit')
-    visit "/television_shows/3/edit"
-    save_and_open_page
-    # expect(page).to have_content("Jeapordy")
-    # expect(page).to have_content("Columbia broadcast system")
+    click_link('Edit')
 
     fill_in('Network', with: 'CBS')
     fill_in('Starting Year', with: '1964')

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Television Shows</title>
+  </head>
+  <body>
+    <h1>Edit Show</h1>
+
+<form action="/television_shows" method="post">
+  <div>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="television_show[title]" value="Jeapordy">
+  </div>
+
+  <div>
+    <label for="network">Network:</label>
+    <input type="text" id="network" name="television_show[network]" value="Columbia broadcast system">
+  </div>
+
+  <div>
+    <label for="starting_year">Starting Year:</label>
+    <input type="number" id="starting_year" name="television_show[starting_year]" value="1984">
+  </div>
+
+  <div>
+    <label for="ending_year">Ending Year:</label>
+    <input type="number" id="ending_year" name="television_show[ending_year]" value="">
+  </div>
+
+  <div>
+    <label for="genre">Genre:</label>
+    <select id="genre" name="television_show[genre]">
+      
+        
+          <option>Action</option>
+        
+      
+        
+          <option selected>Mystery</option>
+        
+      
+        
+          <option>Drama</option>
+        
+      
+        
+          <option>Comedy</option>
+        
+      
+        
+          <option>Fantasy</option>
+        
+      
+    </select>
+  </div>
+
+  <div>
+    <label for="synopsis">Synopsis:</label>
+    <textarea id="synopsis" name="television_show[synopsis]" value=""></textarea>
+  </div>
+
+  <input type="submit" value="Update TV Show">
+  <span class="error-message"></span>
+</form>
+
+<a href="/television_shows">Back to all shows</a>
+
+  </body>
+</html>
